@@ -1,6 +1,6 @@
 import fetch from 'node-fetch';
 import { PluginOptions } from './gatsby-node';
-import { OmdbResponse } from './types/OmdbResponse';
+import { Movie } from './types/omdb-movie';
 
 export const OMDB_API_URL = 'http://www.omdb.com/';
 
@@ -32,10 +32,10 @@ const getByTitle = async (
         );
     }
 
-    const result: OmdbResponse = await response.json();
-    return result.items;
+    const result: Movie = await response.json();
+    return result;
 };
 
-export const omdbGetByTitleResponse: OmdbResponse = async(apiKey, text, type) => {
+export const omdbGetByTitleResponse: Movie = async(apiKey, text, type) => {
     return await getByTitle(apiKey, text, type)
 };
