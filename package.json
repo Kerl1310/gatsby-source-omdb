@@ -1,58 +1,58 @@
 {
-    "name": "gatsby-source-omdb",
-    "version": "1.0.0",
-    "description": "Gatsby source plugin for using data from OMDB on your website",
-    "main": "index.js",
-    "bin": "token-tool.js",
-    "author": "Kyle Jones <kylejones1310@outlook.com>",
-    "license": "MIT",
-    "repository": {
-      "type": "git",
-      "url": "https://github.com/Kerl1310/gatsby-source-omdb.git"
-    },
-    "homepage": "https://github.com/Kerl1310/gatsby-source-omdb",
-    "keywords": [
-      "gatsby",
-      "gatsby-plugin",
-      "gatsby-source-plugin",
-      "omdb"
-    ],
-    "scripts": {
-      "prepublishOnly": "yarn build",
-      "build": "tsc",
-      "format": "prettier --write 'src/**/*",
-      "lint": "tslint --project tsconfig.json"
-    },
-    "files": [
-      "*.js",
-      "*.d.ts"
-    ],
-    "publishConfig": {
-      "access": "public"
-    },
-    "dependencies": {
-      "@types/open": "^6.2.1",
-      "commander": "^2.20.0",
-      "gatsby-node-helpers": "^0.3.0",
-      "gatsby-source-filesystem": "^2.1.8",
-      "inquirer": "^6.5.0",
-      "node-fetch": "^2.6.0",
-      "open": "^6.4.0"
-    },
-    "devDependencies": {
-      "@types/inquirer": "^6.5.0",
-      "@types/node": "^12.6.9",
-      "@types/node-fetch": "^2.5.0",
-      "@types/prettier": "^1.18.1",
-      "gatsby": "^2.13.51",
-      "prettier": "^1.18.2",
-      "tslint": "^5.18.0",
-      "tslint-config-prettier": "^1.18.0",
-      "tslint-plugin-prettier": "^2.0.1",
-      "typescript": "^3.5.3"
-    },
-    "peerDependencies": {
-      "gatsby": "^2.10.8"
-    }
+  "name": "gatsby-source-omdb",
+  "version": "1.0.0",
+  "description": "Gatsby source plugin for using data from OMDB on your website",
+  "main": "index.js",
+  "bin": "token-tool.js",
+  "author": "Kyle Jones <kylejones1310@outlook.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Kerl1310/gatsby-source-omdb.git"
+  },
+  "homepage": "https://github.com/Kerl1310/gatsby-source-omdb",
+  "keywords": [
+    "gatsby",
+    "gatsby-plugin",
+    "gatsby-source-plugin",
+    "omdb"
+  ],
+  "scripts": {
+    "prepublishOnly": "yarn build",
+    "build": "tsc",
+    "format": "prettier --write 'src/*.ts",
+    "lint": "tslint --project tsconfig.json"
+  },
+  "files": [
+    "*.js",
+    "*.d.ts"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@types/inquirer": "^6.5.0",
+    "@types/node": "^12.6.9",
+    "@types/node-fetch": "^2.5.0",
+    "@types/open": "^6.2.1",
+    "@types/prettier": "^1.18.1",
+    "acorn": "^7.2.0",
+    "commander": "^2.20.0",
+    "dependencies": "0.0.1",
+    "gatsby": "^2.22.15",
+    "gatsby-node-helpers": "^0.3.0",
+    "gatsby-source-filesystem": "^2.3.8",
+    "inquirer": "^6.5.0",
+    "node-fetch": "^2.6.0",
+    "open": "^6.4.0",
+    "prettier": "^1.19.1",
+    "tslint": "^5.18.0",
+    "tslint-config-prettier": "^1.18.0",
+    "tslint-plugin-prettier": "^2.0.1",
+    "typescript": "^3.9.3"
+  },
+  "devDependencies": {},
+  "peerDependencies": {
+    "gatsby": "^2.10.8"
   }
-  
+}

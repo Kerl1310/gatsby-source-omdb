@@ -4,7 +4,7 @@ export interface Movie {
     title: string,
     year: string,
     rated: string,
-    released: DateTime,
+    released: string,
     runtime: string,
     genre: string,
     director: string,

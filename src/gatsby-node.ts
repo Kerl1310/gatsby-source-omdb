@@ -2,7 +2,7 @@ import fetch from 'node-fetch';
 import { createFileNodeFromBuffer } from 'gatsby-source-filesystem';
 import { OmdbNode } from './nodes';
 
-import { omdbGetByTitleResponse } from './omdb-api';
+import { omdbGetMovieByTitle } from './omdb-api';
 
 export interface PluginOptions {
     // Auth
@@ -10,7 +10,7 @@ export interface PluginOptions {
 
     // Config
     text: string;
-    type?: string;
+    type?: 'movie' | 'series' | 'episode';
     yearOfRelease?: number;
     returnType?: string;
     plot?: string;
@@ -61,32 +61,26 @@ export const sourceNodes = async (
     const { createNode, touchNode } = actions;
     const helpers = { cache, createNode, createNodeId, store, touchNode };
 
-    const { omdbResults } = await omdbGetByTitleResponse(
+    const omdbResults = await omdbGetMovieByTitle(
         pluginOptions
     );
 
-    await Promise.all([
-        ...omdbResults.map(async (result, index) => {
-            createNode(
+    await createNode(
                 OmdbNode({
-                    ...result,
-                    imdbId: `${result.imdbId}`,
-                    order: index,
-                    title: `${result.Title}`,
-                    plot: `${result.Plot}`,
-                    type: `${result.Type}`,
-                    imdbRating: `${result.ImdbRating}`,
+                    imdbId: `${omdbResults.imdbId}`,
+                    title: `${omdbResults.title}`,
+                    plot: `${omdbResults.plot}`,
+                    type: `${omdbResults.type}`,
+                    imdbRating: `${omdbResults.imdbRating}`,
                     poster:
-                        result.Poster
+                        omdbResults.poster
                             ? await referenceRemoteFile(
-                                result.Poster,
-                                result.Poster,
+                                omdbResults.poster.toString(),
+                                omdbResults.poster.toString(),
                                 helpers,
                             )
                             : null,
                 }),
             );
-        })]);
-
-        return;
-    };
+            return;
+        };

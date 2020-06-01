@@ -8,7 +8,7 @@ const getByTitle = async (
     apiKey: string,
     title: string,
     type: 'movie' | 'series' | 'episode' = 'movie',
-    yearOfRelease: number = null,
+    yearOfRelease?: number,
     returnType: 'json' = 'json', // Omdb Api accepts xml too,
     plot: 'short' | 'full' = 'full',
     version: number = 1
@@ -36,6 +36,15 @@ const getByTitle = async (
     return result;
 };
 
-export const omdbGetByTitleResponse: Movie = async(apiKey, text, type) => {
-    return await getByTitle(apiKey, text, type)
-};
+export const omdbGetMovieByTitle = async ({
+         apiKey,
+         text,
+         type,
+         yearOfRelease,
+         returnType,
+         plot,
+         version
+        }: PluginOptions) => {
+            const results = await getByTitle(apiKey, text, type) as Movie;
+            return results;
+       };
