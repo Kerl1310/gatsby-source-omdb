@@ -12,8 +12,8 @@ export interface PluginOptions {
     text: string;
     type?: 'movie' | 'series' | 'episode';
     yearOfRelease?: number;
-    returnType?: string;
-    plot?: string;
+    returnType?: 'json';
+    plot?: 'short' | 'full';
     version?: number;
 }
 
