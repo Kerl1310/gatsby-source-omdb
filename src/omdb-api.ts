@@ -1,5 +1,5 @@
 import fetch from 'node-fetch';
-import { PluginOptions } from './gatsby-node';
+import { PluginOptions } from './types/plugin-options';
 import { Movie } from './types/omdb-movie';
 
 export const OMDB_API_URL = 'http://www.omdb.com/';

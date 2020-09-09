@@ -20,12 +20,21 @@
   "scripts": {
     "prepublishOnly": "yarn build",
     "build": "tsc",
-    "format": "prettier --write 'src/*.ts",
-    "lint": "tslint --project tsconfig.json"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "test:update": "jest --updateSnapshot",
+    "test:watch": "jest --watch",
+    "lint": "npm-run-all --continue-on-error -p lint:code lint:other",
+    "lint:code": "tslint --project tsconfig.json",
+    "lint:other": "npm run prettier -- --check",
+    "format": "npm run format:code && npm run format:other",
+    "format:other": "npm run prettier -- --write",
+    "format:code": "npm run lint:code -- --fix",
+    "release": "release-it"
   },
   "files": [
     "*.js",
-    "*.d.ts"
+    "*.ts"
   ],
   "publishConfig": {
     "access": "public"
@@ -36,6 +45,7 @@
     "@types/node-fetch": "^2.5.0",
     "@types/open": "^6.2.1",
     "@types/prettier": "^1.18.1",
+    "@release-it/conventional-changelog": "^1.1.0",
     "acorn": "^7.2.0",
     "commander": "^2.20.0",
     "dependencies": "0.0.1",
@@ -49,9 +59,13 @@
     "tslint": "^5.18.0",
     "tslint-config-prettier": "^1.18.0",
     "tslint-plugin-prettier": "^2.0.1",
-    "typescript": "^3.9.3"
+    "typescript": "^3.9.3",
+    "release-it": "^12.4.3",
+    "npm-run-all": "^4.1.5"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    
+  },
   "peerDependencies": {
     "gatsby": "^2.10.8"
   }
